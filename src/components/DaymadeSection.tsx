@@ -16,10 +16,10 @@ export function DaymadeSection({
   columns = 2,
   imageSizes = '(max-width: 768px) 100vw, 50vw',
 }: Props) {
-  const gridClass =
+  const containerClass =
     columns === 3
-      ? 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
-      : 'grid grid-cols-1 gap-4 md:grid-cols-2'
+      ? 'grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4'
+      : 'columns-1 gap-4 md:columns-2'
 
   return (
     <section className="px-6 py-12 md:px-12">
@@ -41,19 +41,20 @@ export function DaymadeSection({
 
       {!caption && <div className="mb-8" />}
 
-      <div className={gridClass}>
+      <div className={containerClass}>
         {images.map((img, i) => (
-          <NoRightClickImage
-            key={img.src}
-            src={img.src}
-            alt={img.alt || heading}
-            width={img.width}
-            height={img.height}
-            className="w-full"
-            sizes={imageSizes}
-            quality={85}
-            priority={i < 2}
-          />
+          <div key={img.src} className="mb-4 break-inside-avoid">
+            <NoRightClickImage
+              src={img.src}
+              alt={img.alt || heading}
+              width={img.width}
+              height={img.height}
+              className="w-full"
+              sizes={imageSizes}
+              quality={85}
+              priority={i < 2}
+            />
+          </div>
         ))}
       </div>
     </section>
