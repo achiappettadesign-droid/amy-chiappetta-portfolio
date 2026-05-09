@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js Dev",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["-c", "cd '/Users/amychiappetta/Documents/Digital Portfolio Amy' && /Users/amychiappetta/.nvm/versions/node/v24.15.0/bin/node node_modules/next/dist/bin/next dev"],
+      "port": 3000
+    }
+  ]
+}

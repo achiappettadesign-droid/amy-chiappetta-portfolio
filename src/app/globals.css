@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f7f6f5;
+  --color-ink: #2f292b;
+  --color-green: #4a5b58;
+  --color-yellow: #e8c85e;
+}
+
+:root {
+  --color-bg: #f7f6f5;
+  --color-ink: #2f292b;
+  --color-green: #4a5b58;
+  --color-yellow: #e8c85e;
+}
+
+html {
+  font-family: var(--font-archivo, 'Archivo', sans-serif);
+  font-weight: 500;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+}
+
+@keyframes pageFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-page-fade {
+  animation: pageFade 200ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-fade {
+    animation: none;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  nav {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 10pt;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: none;
+  }
+
+  /* Show the href next to links on print */
+  a[href^="mailto"]::after,
+  a[href^="http"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 8pt;
+    color: #555;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
