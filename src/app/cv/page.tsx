@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { MailtoButton } from '@/components/MailtoButton'
+import { NoRightClickImage } from '@/components/NoRightClickImage'
 import site from '@/content/site'
 
 export const metadata: Metadata = {
@@ -38,6 +39,20 @@ export default function CvPage() {
           Printmaker &amp; Designer
         </p>
       </section>
+
+      {/* Photo — hidden on print */}
+      <div className="mb-12 print:hidden">
+        <NoRightClickImage
+          src="/cv-photo.jpg"
+          alt="Amy Chiappetta"
+          width={5114}
+          height={3839}
+          className="w-full"
+          sizes="100vw"
+          quality={85}
+          priority
+        />
+      </div>
 
       <section className="px-6 pb-20 md:px-12">
         <div className="max-w-2xl space-y-14">
